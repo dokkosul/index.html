@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2025 by anonymous (http://jsbin.com/rijalecuye/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>양면 책 레이아웃</title>
+  <style>
+    /* 공통 레이아웃 설정 */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      font-family: 바탕체, sans-serif;
+    }
+    .spread {
+      display: flex;
+      width: 100%;
+    }
+    .page {
+      width: 50%;
+      height: 100%;
+      overflow-y: auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    .left-page {
+      background-color: #fefef8;
+      border-right: none;
+    }
+    .right-page {
+      background-color: #ffffff;
+      border-left: none;
+    }
+
+    /* 왼쪽 페이지 - 요약본.css */
+    .left-page .container {
+      display: grid;
+      grid-template-rows: auto auto auto;
+      gap: 0px;
+    }
+    .left-page .row {
+      display: grid;
+      gap: 5px;
+      margin-bottom: 10px
+    }
+    .left-page .row:first-child,
+    .left-page .row:last-child {
+      grid-template-columns: 1fr 1fr;
+    }
+    .left-page .row:nth-child(2) {
+      grid-template-columns: 1fr;
+    }
+    .left-page .box {
+      display: flex;
+      border: 1px solid gray;
+      padding: 10px;
+      align-items: center;
+      height: 205px;
+    }
+    .left-page .image {
+      flex: 1;
+    }
+    .left-page .image img {
+      max-width: 200%;
+      height: ;
+      width: 100%;
+      height: 200px;
+    }
+    .left-page .text {
+      flex: 2;
+      padding-left: 10px;
+      font-size: 10px;
+    }
+
+    /* 오른쪽 페이지 - jsbin.galusalamu.css */
+    .right-page h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .right-page p {
+      margin-bottom: 20px;
+      text-align: right;
+      line-height: 1.6;
+    }
+    .right-page h2 {
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    .right-page .hover-text {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+      padding-left: 210px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .right-page .hover-text img {
+      position: absolute;
+      top: 0;
+      left: -20px;
+      width: 200px;
+      height: auto;
+      display: none;
+      border: 1px solid #ccc;
+    }
+    .right-page .hover-text:hover img {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="spread">
+    <!-- 왼쪽 페이지: 요약본 -->
+    <div class="page left-page">
+      <div class="container">
+        <div class="row">
+          <div class="box">
+            <div class="image">
+              <img src="https://i.pinimg.com/736x/eb/64/35/eb643531e33845d05073fe14f2241bf6.jpg" alt="이미지 1">
+            </div>
+            <div class="text">
+              <h2>무용함의 존재가 말해주는 것</h2>
+              <p>막혀버린 창문이 마치 그 집의 과거를 말없이 증언하고 있었다.이러한 구조물은 더 이상 어떤 기능도 하지 않는다. 하지만 그것들이 철거되지 않고, 오히려 유지·보수되고 있다는 점은 묘한 역설을 품고 있다.그저 존재한다는 이유만으로 보존하려 애쓰는 것처럼.
+
+ 마치 우리 사회가 어떤 실용성도 없는 것「이층집의 인간」은 내가 도쿄 시내를 거닐며 우연히 마주친 낡은 이층집에서 시작됐다...</p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="image">
+              <img src="https://i.imgur.com/OZGUYdM.png" alt="이미지 2">
+            </div>
+            <div class="text">
+              <h2>예술이 아닌 것을 예술로 본다</h2>
+              <p>나는 그것을 고쳐 쓰거나 철거할 생각 대신, 사진을 찍고나는 이것들을 예술 작품처럼 대했다. 이 과정에서 나는 깨달았다. 예술은 작가의 의도만이 아니라, 관찰자의 태도에서도 생겨난다는 사실을. 이층집의 인간은 건물을 짓고, 그것을 버린 누군가일 수도 있지만, 동시에 그것을 예술로 바라보는 ‘나’이기도 했다.이 작품은 아카세가와 겐페이가 관념적이거나 철학적인 언어가 아니라, 현실 세계의 '구체물</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="box">
+            <div class="image">
+              <img src="https://i.pinimg.com/736x/43/23/c9/4323c92d69d91b3137c021c5cb9e37cc.jpg" alt="이미지 3">
+            </div>
+            <div class="text">
+              <h2>예술은 일상에 있다</h2>
+              <p>  현실 세계의 '구체물'을 통해 예술을 논했다는 점에서 매우 유쾌하면서도 깊이 있는 예술 에세이라고 할 수 있다.이처럼 기능을 잃은 구조물들은 우리에게 도시가 어떻게 변화하고, 어떤 이야기를 품고 있는지를 비밀스럽게 전한다. 그리고 나는 그 메시지를 해독하려 한다. 그것이 내가 초예술 토머슨을 찾아다니는 이유다.초예술 토머슨이라는 개념은 사실 거창한 철학이 아니다.이층집의 계단이 어디로도 이어지지 않아도, 창문이 막혀 있어도, 그건 도시가 시간 속에서 어떻게 변해왔는지를 보여주는 ‘도시의 무의식’이다. 나는 그 무의식을 ‘초예술’이라 부르고 싶었다. 그것은 도시가 무심코 남긴 시(詩)와도 같다.「이층집의 인간」은 도시 속 구조물과 인간의 흔적을 통해 **“실용성을 벗어난 존재의 아름다움”**을 포착하는 글입니다. 그것은 단지 건축의 이야기가 아니라, 기능을 잃어도 존재로서 가치 있는 것들에 대한 통찰이자, 예술이란 무엇인가에 대한 근본적인 질문이기도 합니다. </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="box">
+            <div class="image">
+              <img src="https://i.pinimg.com/736x/19/ed/25/19ed25d14ea3c1af2b291dffeb65b92b.jpg" alt="이미지 4">
+            </div>
+            <div class="text">
+              <h2>도시의 인감: 과거의 흔적을 새긴 공간</h2>
+              <p> 이 집의 외벽과 구조물들은 시간의 흐름 속에 찍힌 ‘도시의 인감’이었다. 그 인감은 단지 물리적 흔적만을 남긴 것이 아니다. 그것은 이 집이 한때 품었을 인간의 삶과 기억, 그리고 시간이 새겨진 궤적이다. 비록 문은 굳게 닫혀 있고, 계단은 어디로도 연결되지 않지만, 그 존재 자체로서 이 집의 과거를 증언하고 있다. 나는 이 무용한 흔적들이 곧 도시가 가진 ‘기억’이라고 생각한다.나는 도시를 걷다가 문득 오래된 이층집 앞에 멈춰 섰다...</p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="image">
+              <img src="https://i.pinimg.com/736x/c7/c7/c1/c7c7c136b314b2e189220803f90c6f23.jpg" alt="이미지 5">
+            </div>
+            <div class="text">
+              <h2>도시의 무의식: 기능을 잃은 구조물에 담긴 시간과 기억</h2>
+              <p> 이 무용한 계단, 막힌 창문, 쓰러져가는 벽체들은 단순히 ‘쓸모없는 것’이 아니 그 흔적, 세월의 흔적, 그리고 사람들의 발길이 닿았던 순간의 증거이다. 나는 이 구조물들을 마치 꿈틀거리는 도시의 기억 조각들로 본다. 그것들이 바로 도시의 무의식인 것이다.도시는 살아있는 생명체와 같다. 그리고 그 안에는...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 오른쪽 페이지: jsbin.galusalamu -->
+    <div class="page right-page">
+      <h1>이층집의 인간</h1>
+
+      <p>나중에 앨범 두 권이 배송되어 왔다. 물건은 총 스물일곱 개로 사진이 101장...</p>
+      <p>물음표 표시가 된 것도 있었지만 사진은 모두 미려했다. 그중 ‘열일곱 개의 야타고 군’을 이번에 먼저 소개하겠다.</p>
+
+      <h2>열일곱 개의 야타고 군</h2>
+
+      <p><strong class="hover-text">발견 장소
+        <img src="https://i.imgur.com/NHmstgO.png" alt="발견 장소 이미지">
+      </strong>: 도쿄도 기타구 나카쥬조 중심일 1-14-15 다카야마 씨 집 옆 시바사카 언덕</p>
+
+      <p><strong>발견 일자:</strong> 1984년 4월 28일</p>
+      <p><strong>발견자:</strong> 요시노 시노부, 오미야시 닛신초 3-85-4</p>
+
+      <p><strong class="hover-text">물건 상황
+        <img src="https://i.imgur.com/OTjTuxe.png" alt="물건 상황 이미지">
+      </strong>: 다카야마 씨 집 옹벽 아래에 기둥 형태의 돌기가 줄지어 서 있습니다.</p>
+      <p>전신주 아래쪽에 네 개, 전신주와 언덕 명판 사이에 열한 개, 명판과 차고 사이에 하나, 차고를 지나 내려간 곳에 하나, 총 열일곱 개가 나란히 서 있습니다.</p>
+      <p>단면과 높이가 모두 비슷하고 재질은 일곱 번째를 제외하고 화강암(?)으로 되어 있습니다.</p>
+      <p>용도로 생각해 볼 수 있는 것은 주차 방지용 기둥인데 그것만으로는 설명이 부족합니다.</p>
+      <p>특히 17번 돌기는 주차 방지용 기둥이라고 전혀 납득할 수 없습니다.</p>
+    </div>
+  </div>
+</body>
+</html>
