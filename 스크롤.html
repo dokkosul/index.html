@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>텍스트 레이아웃 예시</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        body {
+            margin: 0; /* body의 기본 마진 제거 */
+            background-color: black; /* 배경색을 검정색으로 설정하여 텍스트가 잘 보이도록 함 */
+        }
+        /* 텍스트를 감싸는 전체 컨테이너 */
+        .outer-container {
+            width: 1728px; /* 이미지에서 참조된 큰 배경 div의 너비 */
+            height: 1117px; /* 이미지에서 참조된 큰 배경 div의 높이 */
+            background-color: rgba(0, 0, 0, 1.00); /* 검정색 배경 */
+            position: relative; /* 내부 absolute 요소들의 기준이 됨 */
+            margin: 0 auto; /* 컨테이너를 페이지 중앙에 배치 */
+        }
+        
+        /* 공통 호버 효과를 위한 스타일 (커서, 트랜지션, 포지션) */
+        .hover-effect-text { /* 모든 호버 텍스트에 적용될 공통 클래스 */
+            cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+            transition: color 0.3s ease; /* 부드러운 색상 전환 효과 */
+            position: relative; /* 이미지 위치 지정을 위해 필요 */
+        }
+        
+        /* 첫 번째 호버 텍스트 스타일 */
+        .hover-text-one:hover { /* 클래스명 변경 */
+            color: #00E1FF; /* 호버 시 색상 변경 */
+        }
+        
+        /* 두 번째 호버 텍스트 스타일 */
+        .hover-text-two:hover { /* 클래스명 변경 */
+            color: #D900FF; /* 호버 시 색상 변경 */
+        }
+        
+        /* 첫 번째 호버 텍스트에 나타나는 이미지 (사진 ①의 오른쪽 난간) */
+        .hover-text-one::after { /* 클래스명 변경 */
+            content: '';
+            position: absolute;
+            width: 333px;
+            height: 220px;
+            background-image: url('3.webp'); /* 3.webp 이미지 경로 */
+            background-size: cover;
+            background-position: center;
+            top: -50px; /* 텍스트 위쪽으로 올려서 일부 겹치게 */
+            left: 50px; /* 약간 오른쪽으로 이동하여 일부만 가리게 */
+            opacity: 0; /* 기본적으로 숨김 */
+            visibility: hidden; /* 기본적으로 숨김 */
+            transition: opacity 0.3s ease, visibility 0.3s ease; /* 부드러운 나타남 효과 */
+            z-index: 1000; /* 다른 요소 위에 표시 */
+        }
+        
+        .hover-text-one:hover::after { /* 클래스명 변경 */
+            opacity: 1; /* 호버 시 이미지 표시 */
+            visibility: visible; /* 호버 시 이미지 표시 */
+        }
+
+        /* 두 번째 호버 텍스트에 나타나는 이미지 (전철 세이부이케부쿠로선) */
+        .hover-text-two::after { /* 클래스명 변경 */
+            content: '';
+            position: absolute;
+            width: 173px; /* 필요에 따라 이미지 크기 조절 */
+            height: 172px; /* 필요에 따라 이미지 크기 조절 */
+            background-image: url('4.jpg'); /* 4.png 이미지 경로 */
+            background-size: cover;
+            background-position: center;
+            top: -50px; /* 텍스트 위쪽으로 올려서 위치 조절 */
+            left: 0px; /* 약간 오른쪽으로 이동하여 일부만 가리게 */
+            opacity: 0; /* 기본적으로 숨김 */
+            visibility: hidden; /* 기본적으로 숨김 */
+            transition: opacity 0.3s ease, visibility 0.3s ease; /* 부드러운 나타남 효과 */
+            z-index: 1000; /* 다른 요소 위에 표시 */
+        }
+        
+        .hover-text-two:hover::after { /* 클래스명 변경 */
+            opacity: 1; /* 호버 시 이미지 표시 */
+            visibility: visible; /* 호버 시 이미지 표시 */
+        }
+
+        /* --- 🌟 페이지 이동 버튼 공통 스타일 🌟 --- */
+        .page-button {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 2000;
+            color: #FFFFFF; /* 화살표 색상 */
+            font-size: 40px; /* 화살표 크기 */
+            line-height: 1; /* 라인 높이 조정 */
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        .page-button:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        /* 다음 페이지 버튼 */
+        .next-page-button {
+            bottom: 50px;
+            right: 50px;
+        }
+        .next-page-button::after {
+            content: '→'; /* 오른쪽 화살표 */
+        }
+    </style>
+</head>
+<body>
+    <div class="outer-container">
+        <div style="position: absolute;
+                     width: 1531px;
+                     height: 682px;
+                     left: 98px;
+                     top: 218px;
+                     font-family: 'Pretendard', sans-serif;
+                     font-style: normal;
+                     font-weight: 700;
+                     font-size: 40px;
+                     line-height: 62px;
+                     color: #FFFFFF;
+                     text-align: left;">
+            그런 이유로 계단도 무용無用해졌지만, 철거하려면 돈이 드니 그대로 두었을 것이었다. 즉 타지 않는 쓰레기로 건물 밖에 내놓은 것이다.² 이렇게도 생각해 볼 수 있지 않을까?
+
+서민인 나는 이렇게 결론짓고 안심했다. 그리고 잊으려고 했다. 그런데 아무리 해도 신경이 쓰여 머릿속에서 지워지지 않았다. 이건 지극히 평범한 타지 않는 대형 쓰레기라고 애써 정리하려고 했다. 그런데 보고 있으면 도저히 쓰레기라는 생각이 들지 않았다. 이 계단은 정말 해맑은 얼굴을 하고 그 장소에 있었기 때문이다.
+
+그렇다고 이런 문학적이고 주관적인 인상만 이유는 아니다. 주관이나 인상 비평 같은 것을 뛰어넘는 과학적 증거를 발견했다. <span class="hover-effect-text hover-text-one">사진 ①의 오른쪽 난간을 잘 보자.</span> 파손되었던 부분을 새로운 목재로 보수한 걸 알 수 있다. 세상에 누가 무용의 쓰레기를 보수할까?
+
+세상에는 순문학이 아닌 순계단이라는 것이 있다. 순수하게 오르내리기만 할 수 있는 계단, 올라가도 아무것도 없는 계단 말이다. 오직 계단 그 자체로 존재해 완벽한 순수 계단 純粹階段 이라고밖에 생각할 수 없다. 오락성은 물론, 용도성도 장식성도 없다. 이 세상에서 유용성이라고는 전혀 찾아볼 수 없는 계단이다. 나는 그런 계단을 요쓰야에서 발견했다. 그리고 실제로 오르락내리락해보고 그것이 수수께끼가 되어 내 머릿속에 남았다.
+수수께끼는 수수께끼를 낳는다는 말이 있다. 그런 일이 실제로 일어났다. 본래의 수수께끼가 없으면 그것을 낳는 수수께끼도 없다. 그런데 수수께끼가 하나 생기기 시작하면 그 수수께끼를 풀기 위한 다른 수수께끼가 등장한다.
+
+수수께끼가 수수께끼를 낳은 일이 다음 해 봄에 일어났다. 지금으로부터 9년 전이다. 봄은 뭐니 뭐니 해도 세금의 계절, 확정 신고의 계절이다. 원천징수로 수입의 10퍼센트나 떼어 괴로워하다가 언젠가 다시 잘 계산해 신고하면 가져갔던 돈을 돌려준다. 그래서 나는 꼼꼼하게 계산해 세무서에 신고하러 갔다. 당시 나는 네리마 구馬区에 살았고 네리마세무서는 에코다江古田에 있었다. <span class="hover-effect-text hover-text-two">전철 세이부이케부쿠로선西武池袋線을</span> 타고 에코다에 갔다. 승강장에 내려 개찰구까지 가려면 계단을 올라가 육교를 건너야 한다. 육교는 목조로 되어 있었고 벽에 판이 붙어 있었다. 나는 인파에 뒤섞여 육교를 우르르 내려갔다. 그러다 무심코 왼쪽 벽을 보았다. 그것이 있었다. 물건이었다.
+
+        </div>
+        <div style="position: absolute;
+                     width: 325px;
+                     height: 62px;
+                     left: 98px;
+                     top: 64px;
+                     font-family: 'Pretendard', sans-serif;
+                     font-style: normal;
+                     font-weight: 700;
+                     font-size: 60px;
+                     line-height: 62px;
+                     color: #FFFFFF;
+                     text-align: left;">
+            23p
+        </div>
+        <a href="next_page.html" class="page-button next-page-button"></a>
+    </div>
+</body>
+</html>
