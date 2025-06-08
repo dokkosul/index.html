@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2025 by anonymous (http://jsbin.com/sacelojugi/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+    <title>텍스트 레이아웃 예시</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+        }
+
+        .outer-container {
+            width: 172px;
+            height: 111px;
+            background-color: black;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .hover-text, .new-hover-text, .third-hover-text {
+            cursor: pointer;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .hover-text:hover {
+            color: #FF0000;
+        }
+
+        .new-hover-text:hover {
+            color: #00FF00;
+        }
+
+        .third-hover-text:hover {
+            color: #00FFFF;
+        }
+
+        .hover-text::after {
+            content: '';
+            position: absolute;
+            width: 333px;
+            height: 220px;
+            background-image: url('1.png');
+            background-size: cover;
+            background-position: center;
+            top: -50px;
+            left: 50px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+        }
+
+        .hover-text:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .new-hover-text::after {
+            content: '';
+            position: absolute;
+            width: 173px;
+            height: 172px;
+            background-image: url('2.png');
+            background-size: cover;
+            background-position: center;
+            top: -50px;
+            left: 50px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+        }
+
+        .new-hover-text:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .third-hover-text::after {
+            content: '';
+            position: absolute;
+            width: 333px;
+            height: 220px;
+            background-image: url('3.png');
+            background-size: cover;
+            background-position: center;
+            top: -50px;
+            left: 50px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+        }
+
+        .third-hover-text:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* 다음 페이지 버튼 */
+        .next-page-button {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            width: auto;
+            height: auto;
+            background-color: #333;
+            padding: 16px 24px;
+            border-radius: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 2000;
+        }
+
+        .next-page-button:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .next-page-button span {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer-container">
+        <div style="position: absolute;
+                     width: 1531px;
+                     height: 682px;
+                     left: 98px;
+                     top: 218px;
+                     font-family: 'Pretendard', sans-serif;
+                     font-style: normal;
+                     font-weight: 700;
+                     font-size: 40px;
+                     line-height: 62px;
+                     color: #FFFFFF;
+                     text-align: left;">
+            단이 있는 곳에는 올라간 곳에 입구가 있고 문이 있어 그 문을 통과해 건물로 들어가기 마련이다. 그런데 여기는 올라간 곳에 문이 없다. 대신 창문이 있다. 
+            <span class="hover-text">설마 창문까지 올라가라고 일부러 계단을 만든 걸까?</span> 
+            이런 비경제적인 것은 자본주의가 허락하지 않는다. 자본주의 세상에 존재하는 사물들은 모두 도움이 되는 것뿐이다. 그렇다면 도대체 이 계단은 무엇인가? 창문 안을 엿보러 가는 일 외에는 아무 용도도 없는 이것을 계단이라고 부를 수 있을까? 계단이라고 할 수 없다. 그러나 이것은 계단의 형태를 한 예술이라고밖에 할 수 없다. 
+            <span class="hover-text new-hover-text">아니, 어쩌면 이것은 초예술이 아닐까?</span> 
+            그건 아직 섣긋다. 초예술을 떠올릴 것은 훨씬 후의 일로, 실제로는 그렇게 간단하게 예술에 도달하지는 못한다. 예술과 같은 사고는 가까이 다가가기가 두려운 것이라 서민은 되도록 그런 생각을 피하면서 살아간다. 나도 서민이기 때문에 처음에는 더 실용적인 입장에서 생각했다. 역시 자본주의나 공산주의가 세상에 존재하는 이상, 계단에는 반드시 용도가 있어야 한다. 그러나 이 계단도 실은 이 건물의 입구로 올라가는 계단이었고 그 곳에는 분명 문이 있었을 것이다. 그런데 어떤 사정으로 그 문이 더 이상 쓸모없어지면서 개축할 때 막은 다음 
+            <span class="hover-text third-hover-text">창으로 만들었다.</span>
+        </div>
+
+        <div style="position: absolute;
+                     width: 325px;
+                     height: 62px;
+                     left: 98px;
+                     top: 64px;
+                     font-family: 'Pretendard', sans-serif;
+                     font-style: normal;
+                     font-weight: 700;
+                     font-size: 60px;
+                     line-height: 62px;
+                     color: #FFFFFF;
+                     text-align: left;">
+            도시의 종기
+        </div>
+
+        <!-- 다음 페이지 버튼 -->
+        <a href="스크롤.html" class="next-page-button">
+            <span>→ 다음 페이지</span>
+        </a>
+    </div>
+</body>
+</html>
